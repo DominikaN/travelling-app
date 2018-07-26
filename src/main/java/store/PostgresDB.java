@@ -1,5 +1,6 @@
-package com.travellingapp;
+package store;
 
+import com.travellingapp.travel.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

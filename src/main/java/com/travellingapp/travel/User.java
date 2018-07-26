@@ -1,27 +1,32 @@
-package com.travellingapp;
+package com.travellingapp.travel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "User", schema = "public")
 public class User {
     @Id
     @GeneratedValue
-    @Column (name = "id")
+    @Column(name = "id")
     private long id;
-
     @Column(name = "name")
     private String name;
     @Column(name = "nickname")
     private String nickname;
+    @ManyToMany (mappedBy = "users")
+    private Set<Flight> flights = new HashSet<>();
 
-    public User(String name, String nickname) {
+    public User(String name, String nickname, Set<Flight> flights) {
         this.name = name;
         this.nickname = nickname;
+        this.flights = flights;
     }
 
     public void setId(long id) {
@@ -38,6 +43,10 @@ public class User {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public Set<Flight> getFlights() {
+        return flights;
     }
 
     @Override
