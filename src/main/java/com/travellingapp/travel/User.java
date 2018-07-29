@@ -22,6 +22,8 @@ public class User {
     private String nickname;
     @ManyToMany (mappedBy = "users")
     private Set<Flight> flights = new HashSet<>();
+    @ManyToMany (mappedBy = "users")
+    private Set<Item> items = new HashSet<>();
 
     public User(String name, String nickname, Set<Flight> flights) {
         this.name = name;
