@@ -20,15 +20,15 @@ public class User {
     private String name;
     @Column(name = "nickname")
     private String nickname;
-    @ManyToMany (mappedBy = "users")
+    @ManyToMany(mappedBy = "users")
     private Set<Flight> flights = new HashSet<>();
-    @ManyToMany (mappedBy = "users")
+    @ManyToMany(mappedBy = "users")
     private Set<Item> items = new HashSet<>();
 
-    public User(String name, String nickname, Set<Flight> flights) {
+    public User(String name, String nickname) {
         this.name = name;
         this.nickname = nickname;
-        this.flights = flights;
+
     }
 
     public void setId(long id) {

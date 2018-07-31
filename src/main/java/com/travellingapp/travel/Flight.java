@@ -35,6 +35,14 @@ public class Flight {
         this.airlines = airlines;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getFlightNumber() {
         return flightNumber;
     }
@@ -43,8 +51,29 @@ public class Flight {
         return airlines;
     }
 
-    public Set<User> getUsers(){
+    public Set<User> getUsers() {
         return users;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Flight)) return false;
+
+        Flight flight = (Flight) o;
+
+        if (id != flight.id) return false;
+        if (!getFlightNumber().equals(flight.getFlightNumber())) return false;
+        return getAirlines().equals(flight.getAirlines());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + getFlightNumber().hashCode();
+        result = 31 * result + getAirlines().hashCode();
+        return result;
     }
 
     @Override
@@ -52,3 +81,5 @@ public class Flight {
         return "Flight = [flightNumber = " + flightNumber + " , airlines = " + airlines + " ]";
     }
 }
+
+

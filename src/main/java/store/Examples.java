@@ -16,8 +16,8 @@ public class Examples {
         Set<Flight> flights = new HashSet<>();
         Flight flight1 = new Flight("KL345","KLM");
         flights.add(flight1);
-        User user1 = new User("Domi", "domidomi",flights);
-        dataStore.save(user1);
-        dataStore.close();
+        //User user1 = new User("Domi", "domidomi",flights);
+       // dataStore.save(user1);
+       // dataStore.close();
     }
 }
