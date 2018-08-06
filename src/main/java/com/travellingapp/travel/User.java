@@ -24,6 +24,8 @@ public class User {
     private Set<Flight> flights = new HashSet<>();
     @ManyToMany(mappedBy = "users")
     private Set<Item> items = new HashSet<>();
+    @ManyToMany(mappedBy = "users")
+    private Set<Transport> transports = new HashSet<>();
 
     public User(String name, String nickname) {
         this.name = name;
@@ -50,6 +52,10 @@ public class User {
     public Set<Flight> getFlights() {
         return flights;
     }
+
+    public Set<Item> getItems() {return items; }
+
+    public Set<Transport> getTransports() { return transports; }
 
     @Override
     public boolean equals(Object o) {
